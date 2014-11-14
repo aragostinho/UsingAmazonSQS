@@ -1,8 +1,0 @@
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\obj\x86\Debug\UsingAmazonSQS.csprojResolveAssemblyReference.cache
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\bin\Debug\UsingAmazonSQS.exe.config
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\bin\Debug\UsingAmazonSQS.exe
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\bin\Debug\UsingAmazonSQS.pdb
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\bin\Debug\AWSSDK.dll
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\bin\Debug\AWSSDK.pdb
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\obj\x86\Debug\UsingAmazonSQS.exe
-C:\Users\andre.agostinho\Documents\GitHub\UsingAmazonSQS\UsingAmazonSQS\obj\x86\Debug\UsingAmazonSQS.pdb
