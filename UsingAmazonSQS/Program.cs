@@ -7,10 +7,22 @@ namespace UsingAmazonSQS
 {
     public class Program
     {
-
         public static Dictionary<int, AbstractInterpreter> _ActionList;
+
         static void Main(string[] args)
         {
+            string accessKey = null;
+            string privateKey = null;
+
+            if (args.Count() < 2)
+            {
+                Console.Write("Chave de acesso: ");
+                accessKey = Console.ReadLine();
+                Console.WriteLine("");
+                Console.Write("Chave privada: ");
+                privateKey = Console.ReadLine();
+                Console.WriteLine("");
+            }
 
             int _intOption = 1;
             _ActionList = new Dictionary<int, AbstractInterpreter>();
@@ -27,7 +39,7 @@ namespace UsingAmazonSQS
                     option = ShowOptions(_ActionList, args);
                 }
 
-                _ActionList[_intOption].Execute(args);
+                _ActionList[_intOption].Execute(accessKey, privateKey);
 
                 if (args.Length != 0)
                     return;

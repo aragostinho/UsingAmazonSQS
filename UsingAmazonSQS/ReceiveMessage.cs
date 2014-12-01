@@ -17,16 +17,15 @@ namespace UsingAmazonSQS
         }
 
 
-        public override void Execute(string[] args)
+        public override void Execute(string accessKey, string privateKey)
         {
-
             string QueueUrl = ConfigurationManager.AppSettings["SQSServiceQueeUrl"];
             string QueueName = ConfigurationManager.AppSettings["QueueName"];
             string QueueFullUrl = string.Concat(QueueUrl, QueueName);
 
-            AmazonSQSClient sqs = new SQSConfig().Initialize();
+            AmazonSQSClient sqs = new SQSConfig().Initialize(accessKey, privateKey);
 
-            Console.WriteLine(string.Format("Getting message from '{0}' queue...", QueueName));
+            Console.WriteLine(string.Format("Getting messages from '{0}' queue...", QueueName));
 
             int total = GetTotalMessages(QueueFullUrl, sqs);
 
@@ -49,9 +48,10 @@ namespace UsingAmazonSQS
 
 
                 Console.WriteLine();
-                Console.WriteLine("Message has been receive!");
+                Console.WriteLine("Message have been received!");
             }
 
+            Console.WriteLine("All messages have been received");
             Console.ReadKey();
 
         }
@@ -76,7 +76,7 @@ namespace UsingAmazonSQS
 
             if (queueAttributesResult.HttpStatusCode != System.Net.HttpStatusCode.OK)
                 throw new ApplicationException("Problems in the endpoint communication!");
-            
+
             return queueAttributesResult.ApproximateNumberOfMessages;
         }
 

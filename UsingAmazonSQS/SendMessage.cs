@@ -16,14 +16,14 @@ namespace UsingAmazonSQS
             return "Send a sample message";
         }
 
-        public override void Execute(string[] args)
+        public override void Execute(string accessKey, string privateKey)
         {
             string exit = string.Empty;
             string QueueUrl = ConfigurationManager.AppSettings["SQSServiceQueeUrl"];
             string QueueName = ConfigurationManager.AppSettings["QueueName"];
             string QueueFullUrl = string.Concat(QueueUrl, QueueName);
 
-            AmazonSQSClient sqs = new SQSConfig().Initialize();
+            AmazonSQSClient sqs = new SQSConfig().Initialize(accessKey, privateKey);
 
             while (exit != "q")
             {

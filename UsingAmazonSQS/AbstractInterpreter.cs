@@ -7,7 +7,7 @@ namespace UsingAmazonSQS
 {
     public abstract class AbstractInterpreter
     {
-        public abstract void Execute(string[] args);
+        public abstract void Execute(string accessKey, string privateKey);
         public abstract string Description();
     }
 }
