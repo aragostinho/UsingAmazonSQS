@@ -26,9 +26,11 @@ namespace UsingAmazonSQS
 
             AmazonSQSClient sqs = new SQSConfig().Initialize();
 
-            Console.Write(string.Format("Receive message from {0}", QueueName));
+            Console.WriteLine(string.Format("Getting message from '{0}' queue...", QueueName));
 
             int total = GetTotalMessages(QueueFullUrl, sqs);
+
+            Console.WriteLine("There is {0} messages in the queue.\n", total);
 
             for (int i = 0; i < total; i++)
             {
