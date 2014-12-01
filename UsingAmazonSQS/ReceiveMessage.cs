@@ -30,34 +30,38 @@ namespace UsingAmazonSQS
 
             int total = GetTotalMessages(QueueFullUrl, sqs);
 
-            ReceiveMessageRequest requestToReceive = new ReceiveMessageRequest(QueueFullUrl);
-            ReceiveMessageResponse response = sqs.ReceiveMessage(requestToReceive);
-
-            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+            for (int i = 0; i < total; i++)
             {
+                ReceiveMessageRequest requestToReceive = new ReceiveMessageRequest(QueueFullUrl);
+                ReceiveMessageResponse response = sqs.ReceiveMessage(requestToReceive);
 
-                Console.WriteLine();
-                foreach (Amazon.SQS.Model.Message message in response.Messages)
+                if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
                 {
 
                     Console.WriteLine();
-                    Console.WriteLine("Message Content");
-                    Console.WriteLine(message.Body);
+                    foreach (Amazon.SQS.Model.Message message in response.Messages)
+                    {
+
+                        Console.WriteLine();
+                        Console.WriteLine("Message Content");
+                        Console.WriteLine(message.Body);
+                        Console.WriteLine();
+
+                        //delete message after peek it
+                        sqs.DeleteMessage(new DeleteMessageRequest() { QueueUrl = QueueFullUrl, ReceiptHandle = message.ReceiptHandle });
+
+                    }
+
                     Console.WriteLine();
-
-                    //delete message after peek it
-                    sqs.DeleteMessage(new DeleteMessageRequest() { QueueUrl = QueueFullUrl, ReceiptHandle = message.ReceiptHandle });
-
+                    Console.WriteLine("Message has been receive!");
                 }
-
-                Console.WriteLine();
-                Console.WriteLine("Message has been receive!");
+                else
+                {
+                    Console.WriteLine();
+                    Console.Write("Problems in the endpoint communication!");
+                }
             }
-            else
-            {
-                Console.WriteLine();
-                Console.Write("Problems in the endpoint communication!");
-            }
+            
 
             Console.ReadKey();
 
