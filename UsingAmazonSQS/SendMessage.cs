@@ -16,22 +16,23 @@ namespace UsingAmazonSQS
             return "Send a sample message";
         }
 
-
-
         public override void Execute(string[] args)
         {
-
+            string exit = string.Empty;
             string QueueUrl = ConfigurationManager.AppSettings["SQSServiceQueeUrl"];
             string QueueName = ConfigurationManager.AppSettings["QueueName"];
             string QueueFullUrl = string.Concat(QueueUrl, QueueName);
 
             AmazonSQSClient sqs = new SQSConfig().Initialize();
-            Console.Write(string.Format("Sending a message to {0}", QueueName));
 
-            SendMessageRequest requestToSend = new SendMessageRequest
+            while (exit != "q")
             {
-                MessageBody = string.Format("Hellow World!  Sent in: {0}", DateTime.Now.ToString()),
-                MessageAttributes = new Dictionary<string, MessageAttributeValue>
+                Console.Write(string.Format("Sending a message to {0}", QueueName));
+
+                SendMessageRequest requestToSend = new SendMessageRequest
+                {
+                    MessageBody = string.Format("Hellow World!  Sent in: {0}", DateTime.Now.ToString()),
+                    MessageAttributes = new Dictionary<string, MessageAttributeValue>
                   {
                     {
                       "Name", new MessageAttributeValue 
@@ -42,12 +43,13 @@ namespace UsingAmazonSQS
                         { DataType = "String", StringValue = DateTime.Now.ToString() }
                     }
                   },
-                QueueUrl = QueueFullUrl
-            };
-            sqs.SendMessage(requestToSend);
-            Console.WriteLine();
-            Console.WriteLine("Message has been sent!");
-            Console.ReadKey();
+                    QueueUrl = QueueFullUrl
+                };
+                sqs.SendMessage(requestToSend);
+                Console.WriteLine();
+                Console.WriteLine("Message has been sent! press 'q' to exit");
+                exit = Console.ReadLine();
+            }
 
         }
 
