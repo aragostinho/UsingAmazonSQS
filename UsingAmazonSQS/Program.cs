@@ -13,15 +13,18 @@ namespace UsingAmazonSQS
         {
             string accessKey = null;
             string privateKey = null;
+            string argumentOption = null;
 
-            if (args.Count() < 2)
+            if (args.Count() < 3)
             {
-                Console.Write("Chave de acesso: ");
-                accessKey = Console.ReadLine();
-                Console.WriteLine("");
-                Console.Write("Chave privada: ");
-                privateKey = Console.ReadLine();
-                Console.WriteLine("");
+                accessKey = ReadAccessKey(accessKey);
+                privateKey = ReadPrivateKey(privateKey);
+            }
+            else
+            {
+                accessKey = args[0];
+                privateKey = args[1];
+                argumentOption = args[2];
             }
 
             int _intOption = 1;
@@ -31,20 +34,20 @@ namespace UsingAmazonSQS
 
             try
             {
-                string option = ShowOptions(_ActionList, args);
+                string option = ShowOptions(_ActionList, argumentOption);
                 while (int.TryParse(option, out _intOption) == false && !_ActionList.ContainsKey(_intOption))
                 {
                     Console.Clear();
                     Console.WriteLine("Inform the code number:");
-                    option = ShowOptions(_ActionList, args);
+                    option = ShowOptions(_ActionList, argumentOption);
                 }
 
                 _ActionList[_intOption].Execute(accessKey, privateKey);
 
-                if (args.Length != 0)
-                    return;
-
-
+                if (args.Length < 3)
+                    Console.ReadKey();
+                
+                return;
             }
             catch (Exception oException)
             {
@@ -55,16 +58,30 @@ namespace UsingAmazonSQS
 
         }
 
+        private static string ReadPrivateKey(string privateKey)
+        {
+            Console.Write("Private Key: ");
+            privateKey = Console.ReadLine();
+            Console.WriteLine("");
+            return privateKey;
+        }
 
-        private static string ShowOptions(Dictionary<int, AbstractInterpreter> _ActionList, string[] args)
+        private static string ReadAccessKey(string accessKey)
+        {
+            Console.Write("Access Key: ");
+            accessKey = Console.ReadLine();
+            Console.WriteLine("");
+            return accessKey;
+        }
+
+
+        private static string ShowOptions(Dictionary<int, AbstractInterpreter> _ActionList, string option = null)
         {
             Console.WriteLine("Select one of these options below:");
             foreach (var item in _ActionList)
                 Console.WriteLine("{0}) {1}", item.Key, item.Value.Description());
 
-            var hasArguments = args.Length != 0;
-
-            return hasArguments ? args[0] : Console.ReadLine();
+            return string.IsNullOrEmpty(option) ? Console.ReadLine() : option;
         }
     }
 }

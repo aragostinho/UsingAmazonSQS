@@ -52,8 +52,6 @@ namespace UsingAmazonSQS
             }
 
             Console.WriteLine("All messages have been received");
-            Console.ReadKey();
-
         }
 
         private static Message GetMessage(string QueueFullUrl, AmazonSQSClient sqs)
