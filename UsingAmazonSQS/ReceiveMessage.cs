@@ -32,39 +32,23 @@ namespace UsingAmazonSQS
 
             for (int i = 0; i < total; i++)
             {
-                ReceiveMessageRequest requestToReceive = new ReceiveMessageRequest(QueueFullUrl);
-                ReceiveMessageResponse response = sqs.ReceiveMessage(requestToReceive);
-
-                if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
-                {
-
-                    Console.WriteLine();
-                    foreach (Amazon.SQS.Model.Message message in response.Messages)
-                    {
-
-                        Console.WriteLine();
-                        Console.WriteLine("Message Content");
-                        Console.WriteLine(message.Body);
-                        Console.WriteLine();
-
-                        //delete message after peek it
-                        sqs.DeleteMessage(new DeleteMessageRequest() { QueueUrl = QueueFullUrl, ReceiptHandle = message.ReceiptHandle });
-
-                    }
-
-                    Console.WriteLine();
-                    Console.WriteLine("Message has been receive!");
-                }
-                else
-                {
-                    Console.WriteLine();
-                    Console.Write("Problems in the endpoint communication!");
-                }
+                List<Message> messages = null;
+                messages = GetMessages(QueueFullUrl, sqs);
             }
-            
 
             Console.ReadKey();
 
+        }
+
+        private static List<Message> GetMessages(string QueueFullUrl, AmazonSQSClient sqs)
+        {
+            ReceiveMessageRequest requestToReceive = new ReceiveMessageRequest(QueueFullUrl);
+            ReceiveMessageResponse response = sqs.ReceiveMessage(requestToReceive);
+
+            if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+                return response.Messages;
+
+            throw new ApplicationException("Problems in the endpoint communication!");
         }
 
         private static int GetTotalMessages(string QueueFullUrl, AmazonSQSClient sqs)
