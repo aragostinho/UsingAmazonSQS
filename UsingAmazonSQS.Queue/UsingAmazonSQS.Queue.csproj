@@ -7,8 +7,8 @@
     <ProjectGuid>{2A1C6AD2-65C2-4660-8128-435C2975E065}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Queue</RootNamespace>
-    <AssemblyName>Queue</AssemblyName>
+    <RootNamespace>UsingAmazonSQS.Queue</RootNamespace>
+    <AssemblyName>UsingAmazonSQS.Queue</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

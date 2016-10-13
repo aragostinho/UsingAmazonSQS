@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingAmazonSQS.Queue", "Queue\UsingAmazonSQS.Queue.csproj", "{2A1C6AD2-65C2-4660-8128-435C2975E065}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingAmazonSQS.Model", "UsingAmazonSQS.Model\UsingAmazonSQS.Model.csproj", "{F8656DE3-E387-418E-AFF5-9048E5F84DEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingAmazonSQS.Queue.Test", "UsingAmazonSQS.Queue.Test\UsingAmazonSQS.Queue.Test.csproj", "{877DC1F3-6179-4829-AF6F-3109284AE165}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingAmazonSQS.Queue", "UsingAmazonSQS.Queue\UsingAmazonSQS.Queue.csproj", "{2A1C6AD2-65C2-4660-8128-435C2975E065}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Debug|x86.Build.0 = Debug|Any CPU
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Release|x86.ActiveCfg = Release|Any CPU
-		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Release|x86.Build.0 = Release|Any CPU
 		{F8656DE3-E387-418E-AFF5-9048E5F84DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8656DE3-E387-418E-AFF5-9048E5F84DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8656DE3-E387-418E-AFF5-9048E5F84DEC}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -41,6 +33,12 @@ Global
 		{877DC1F3-6179-4829-AF6F-3109284AE165}.Release|Any CPU.Build.0 = Release|Any CPU
 		{877DC1F3-6179-4829-AF6F-3109284AE165}.Release|x86.ActiveCfg = Release|Any CPU
 		{877DC1F3-6179-4829-AF6F-3109284AE165}.Release|x86.Build.0 = Release|Any CPU
+		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A1C6AD2-65C2-4660-8128-435C2975E065}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

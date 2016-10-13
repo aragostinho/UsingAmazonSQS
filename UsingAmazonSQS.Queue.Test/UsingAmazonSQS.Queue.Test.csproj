@@ -58,13 +58,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Queue\UsingAmazonSQS.Queue.csproj">
-      <Project>{2a1c6ad2-65c2-4660-8128-435c2975e065}</Project>
-      <Name>UsingAmazonSQS.Queue</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UsingAmazonSQS.Model\UsingAmazonSQS.Model.csproj">
       <Project>{f8656de3-e387-418e-aff5-9048e5f84dec}</Project>
       <Name>UsingAmazonSQS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UsingAmazonSQS.Queue\UsingAmazonSQS.Queue.csproj">
+      <Project>{2a1c6ad2-65c2-4660-8128-435c2975e065}</Project>
+      <Name>UsingAmazonSQS.Queue</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
