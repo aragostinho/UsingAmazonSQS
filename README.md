@@ -5,7 +5,7 @@ Sample .NET project that uses AWS SDK and SQS (Simples Queue Service)
 - Send a simple message to AWS SQS
 - List all messages from AWS SQS
 
-> **IMPORTANT:** Be guaranteed that the SQS service is configured correctly in your AWS Console. Remember, it's necessary to config some keys in App.config like: SQSServiceUrl, SQSServiceQueeUrl, AwsAccessId and AwsSecretAccessKey
+> IMPORTANT: Be guaranteed that the SQS service is configured correctly in your AWS Console. Remember, it's necessary to config some keys in App.config like: SQSServiceUrl, SQSServiceQueeUrl, AwsAccessId and AwsSecretAccessKey
 
 ###UsingAmazonSQS.Queue
 Class Library that contains:
