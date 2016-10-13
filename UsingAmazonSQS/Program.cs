@@ -30,7 +30,7 @@ namespace UsingAmazonSQS
             int _intOption = 1;
             _ActionList = new Dictionary<int, AbstractInterpreter>();
             _ActionList.Add(1, new SendMessage());
-            _ActionList.Add(2, new ReceiveMessage());
+            _ActionList.Add(2, new ListMessages());
 
             try
             {

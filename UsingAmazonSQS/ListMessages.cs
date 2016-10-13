@@ -8,19 +8,22 @@ using Amazon.SQS.Model;
 
 namespace UsingAmazonSQS
 {
-    public class SendMessage : AbstractInterpreter
+    public class ListMessages : AbstractInterpreter
     {
 
         public override string Description()
         {
-            return "Send a sample message";
+            return "List messages";
         }
+
 
         public override void Execute(string accessKey, string privateKey)
         {
-           
-
+            
+            Console.WriteLine("All messages have been received");
         }
+
+        
 
     }
 }
