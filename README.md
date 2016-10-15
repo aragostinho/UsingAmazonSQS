@@ -1,7 +1,7 @@
 UsingAmazonSQS
 ==============
 
-Sample .NET project that uses AWS SDK and SQS (Simples Queue Service)
+Sample .NET project that uses AWS SDK and SQS (Simple Queue Service)
 - Send a simple message to AWS SQS
 - List all messages from AWS SQS
 
